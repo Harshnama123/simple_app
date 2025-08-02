@@ -10,8 +10,6 @@ interface SpecialMomentsProps {
   onBack: () => void;
 }
 
-const { width, height } = useWindowDimensions();
-
 const specialMoments = [
   {
     title: "That Unexpected Hug",
@@ -63,8 +61,10 @@ const specialMoments = [
   },
 ];
 
+
 const SpecialMomentsPage: React.FC<SpecialMomentsProps> = ({ onBack }) => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const { width, height } = useWindowDimensions();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden">
