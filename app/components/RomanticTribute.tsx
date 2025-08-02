@@ -1,16 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { Heart, Star, Sparkles, Camera, MapPin, Clock, Gift, ArrowLeft, Calendar, Music, Sunset, Home, Plane, Coffee } from 'lucide-react';
+import { Heart, Star, Sparkles, Camera, Clock, Gift, ArrowLeft, Music, Home, Plane } from 'lucide-react';
 
 
 
 interface Memory {
   title: string;
   date: string;
-  icon: any;
+  icon: React.ElementType;
   color: string;
   id: string;
 }

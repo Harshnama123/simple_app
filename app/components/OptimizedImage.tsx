@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface Props {
   src: string;
@@ -12,12 +13,14 @@ export function OptimizedImage({ src, alt, className = '' }: Props) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
       className={`${className} ${isLoaded ? 'loaded' : ''}`}
-      onLoad={() => setIsLoaded(true)}
-      loading="lazy"
+      onLoadingComplete={() => setIsLoaded(true)}
+      width={800}
+      height={600}
+      quality={75}
     />
   );
 }

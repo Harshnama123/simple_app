@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, Heart, Star, Coffee, Sun, Moon, Music, Book, Phone, MessageCircle, Gift } from 'lucide-react';
+import { ArrowLeft, Heart, Star, Coffee, Sun, Moon, Music, Phone, MessageCircle, Gift } from 'lucide-react';
 import React from 'react';
 
 interface DailyLoveProps {

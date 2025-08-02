@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Dancing_Script, Inter } from "next/font/google";
 import "./globals.css";
+import ClientOnly from './components/ClientOnly';
 
 const dancing = Dancing_Script({
   subsets: ["latin"],
@@ -25,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${dancing.variable} ${inter.variable} antialiased`}>
-        {children}
+        <ClientOnly>
+          {children}
+        </ClientOnly>
       </body>
     </html>
   );

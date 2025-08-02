@@ -181,8 +181,8 @@ const FutureDreamsPage: React.FC<FutureDreamsProps> = ({ onBack }) => {
           >
             <Quote className="w-10 h-10 text-purple-500 mx-auto mb-4" />
             <p className="text-xl md:text-2xl text-gray-700 italic leading-relaxed">
-              "The future is bright because you're in it. Every dream, every plan, every tomorrow 
-              becomes beautiful when I imagine sharing it with you, my dearest Dr. Sneha."
+              "&quot;The future is bright because you&apos;re in it. Every dream, every plan, every tomorrow 
+              becomes beautiful when I imagine sharing it with you, my dearest Dr. Sneha.&quot;"
             </p>
           </motion.div>
         </motion.div>
@@ -344,13 +344,13 @@ const FutureDreamsPage: React.FC<FutureDreamsProps> = ({ onBack }) => {
               
               <div className="space-y-6 text-lg leading-relaxed">
                 <p>
-                  These dreams aren't just wishes floating in the air - they are promises I make to you today. 
+                  These dreams aren&apos;t just wishes floating in the air - they are promises I make to you today. 
                   Every vision of our future fills my heart with such joy and excitement.
                 </p>
                 
                 <p className="text-xl font-semibold italic">
-                  "With you, Dr. Sneha, I don't just dream of tomorrow - I know that every tomorrow 
-                  will be more beautiful than today because you'll be there beside me."
+                  &quot;With you, Dr. Sneha, I don&apos;t just dream of tomorrow - I know that every tomorrow 
+                  will be more beautiful than today because you&apos;ll be there beside me.&quot;
                 </p>
                 
                 <p>

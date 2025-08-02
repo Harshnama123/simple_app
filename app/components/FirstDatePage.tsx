@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { ArrowLeft, Heart, Sparkles, Crown, Quote } from 'lucide-react';
-import React, { useState } from 'react';
+import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 
 type PageProps = {
   onBack: () => void;
@@ -10,6 +11,14 @@ type PageProps = {
 
 function FirstDatePage({ onBack }: PageProps) {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [windowDimensions, setWindowDimensions] = useState({ width: 1200, height: 800 });
+
+  useEffect(() => {
+    setWindowDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+  }, []);
 
   const memories = [
     {
@@ -51,14 +60,14 @@ function FirstDatePage({ onBack }: PageProps) {
             key={i}
             className="absolute"
             initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: window.innerHeight + 50,
+              x: Math.random() * windowDimensions.width, 
+              y: windowDimensions.height + 50,
               scale: Math.random() * 0.4 + 0.3,
               opacity: 0.1 + Math.random() * 0.2
             }}
             animate={{ 
               y: -100,
-              x: Math.random() * window.innerWidth,
+              x: Math.random() * windowDimensions.width,
               rotate: 360
             }}
             transition={{ 
@@ -139,8 +148,8 @@ function FirstDatePage({ onBack }: PageProps) {
         >
           <Quote className="w-8 h-8 text-pink-400 mx-auto mb-4" />
           <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed">
-            "Every moment with you feels like poetry written by the stars. These memories are treasures of my heart, 
-            each one a precious glimpse into the magic that is you, Dr. Sneha."
+            &quot;Every moment with you feels like poetry written by the stars. These memories are treasures of my heart, 
+            each one a precious glimpse into the magic that is you, Dr. Sneha.&quot;
           </p>
         </motion.div>
       </motion.div>
@@ -217,10 +226,13 @@ function FirstDatePage({ onBack }: PageProps) {
                       controls
                     />
                   ) : (
-                    <img
-                      src={memory.image}
+                    <Image
+                      src={memory.image || '/placeholder.jpg'}
                       alt={`${memory.title} Memory`}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      width={800}
+                      height={600}
+                      quality={75}
                     />
                   )}
                   

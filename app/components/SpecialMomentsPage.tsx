@@ -2,11 +2,15 @@
 
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star, Heart, Sparkles, Crown, Quote, Moon, Sun } from 'lucide-react';
+import Image from 'next/image';
 import { useState } from 'react';
+import { useWindowDimensions } from '../hooks/useWindowDimensions';
 
 interface SpecialMomentsProps {
   onBack: () => void;
 }
+
+const { width, height } = useWindowDimensions();
 
 const specialMoments = [
   {
@@ -71,14 +75,14 @@ const SpecialMomentsPage: React.FC<SpecialMomentsProps> = ({ onBack }) => {
             key={i}
             className="absolute"
             initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: window.innerHeight + 50,
+              x: Math.random() * width, 
+              y: height + 50,
               scale: Math.random() * 0.4 + 0.2,
               opacity: 0.1 + Math.random() * 0.3
             }}
             animate={{ 
               y: -100,
-              x: Math.random() * window.innerWidth,
+              x: Math.random() * width,
               rotate: 360
             }}
             transition={{ 
@@ -162,7 +166,7 @@ const SpecialMomentsPage: React.FC<SpecialMomentsProps> = ({ onBack }) => {
           >
             <Quote className="w-10 h-10 text-amber-500 mx-auto mb-4" />
             <p className="text-xl md:text-2xl text-gray-700 italic leading-relaxed mb-4">
-              "It's not the grand gestures, it's the tiny sparks that light up our forever."
+              "              &quot;It&apos;s not the grand gestures, it&apos;s the tiny sparks that light up our forever.&quot;"
             </p>
             <p className="text-lg text-amber-700 font-medium">
               Every moment with you, Dr. Sneha, becomes a treasure that my heart keeps forever. 
@@ -253,10 +257,13 @@ const SpecialMomentsPage: React.FC<SpecialMomentsProps> = ({ onBack }) => {
                       controls
                     />
                   ) : (
-                    <img
+                    <Image
                       src={moment.image}
                       alt={moment.title}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      width={800}
+                      height={600}
+                      quality={75}
                     />
                   )}
                   

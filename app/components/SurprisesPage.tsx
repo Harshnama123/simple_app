@@ -2,13 +2,17 @@
 
 import { motion } from 'framer-motion';
 import { ArrowLeft, Gift, Heart, Sparkles, Star, Cake, Flower2, Coffee, Crown, Music } from 'lucide-react';
+import Image from 'next/image';
 import React from 'react';
+import { useWindowDimensions } from '../hooks/useWindowDimensions';
 
 interface SurprisesProps {
   onBack: () => void;
 }
 
-const surprises = [
+  const { width, height } = useWindowDimensions();
+
+  const surprises = [
   {
     title: "Sweet Video Moments",
     description: "Capturing our precious moments together in motion",
@@ -74,14 +78,14 @@ const SurprisesPage: React.FC<SurprisesProps> = ({ onBack }) => {
             initial={{
               opacity: Math.random(),
               scale: Math.random() * 0.5 + 0.5,
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * width,
+              y: Math.random() * height,
             }}
             animate={{
               opacity: [Math.random(), 0.4, Math.random()],
               scale: [1, 1.2, 1],
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * width,
+              y: Math.random() * height,
             }}
             transition={{
               duration: Math.random() * 10 + 20,
@@ -147,10 +151,13 @@ const SurprisesPage: React.FC<SurprisesProps> = ({ onBack }) => {
                       controls
                     />
                   ) : (
-                    <img
+                    <Image
                       src={surprise.image}
                       alt={surprise.title}
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                      width={800}
+                      height={600}
+                      quality={75}
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
