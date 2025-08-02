@@ -4,7 +4,7 @@ const nextConfig = {
     domains: [],
     unoptimized: true // This is required for static exports
   },
-  output: 'export', // Enable static exports
+  // output: 'export', // Enable static exports
   trailingSlash: true, // Add trailing slashes to URLs
   reactStrictMode: true,
   eslint: {
